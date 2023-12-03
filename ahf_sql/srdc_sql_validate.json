@@ -1,0 +1,76 @@
+{
+  "sqlid": {
+    "sql": "set heading off;\nselect count(*) from v$sql where sql_id = UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "table_name": {
+    "sql": "set heading off;\n select count(*) from dba_objects where object_type in ('VIEW','TABLE') and object_name = UPPER('%USERINPUT%') and owner = UPPER('%TABLE_OWNER%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "table_owner": {
+    "sql": "set heading off;\nselect count(*) from dba_tables where owner =UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "index_name": {
+    "sql": "set heading off;\n select count(*) from dba_indexes where index_name = UPPER('%USERINPUT%') and owner =UPPER('%INDEX_OWNER%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "index_owner": {
+    "sql": "set heading off;\nselect count(*) from dba_indexes where owner = UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "log_group_owner": {
+    "sql": "set heading off;\nselect count(*) from dba_log_groups where owner=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "objectname": {
+    "sql": "set heading off;\nselect count(*) from dba_objects where owner=UPPER('%OBJECTOWNER%') and object_type=UPPER('%OBJECTTYPE%') and object_name=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "objectid": {
+    "sql": "set heading off;\nselect count(*) from dba_objects where object_id=TO_NUMBER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "objecttype": {
+    "sql": "set heading off;\nselect count(*) from dba_objects where owner=UPPER('%OBJECTOWNER%') and object_type=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "objectowner": {
+    "sql": "set heading off;\nselect count(*) from dba_objects where owner=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "tablespace_name": {
+    "sql": "set heading off;\nselect count(*) from dba_tablespaces where tablespace_name=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "segment_name": {
+    "sql": "set heading off;\nselect count(*) from dba_segments where tablespace_name=UPPER('%UNDOTBS_NAME%') and segment_name=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  
+  "partition_table": {
+    "sql": "set heading off;\nselect count(*) from dba_tab_partitions where table_owner=UPPER('%PARTITION_TBL_OWNER%') and table_name=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "partition_owner": {
+    "sql": "set heading off;\nselect count(*) from dba_tab_partitions where table_owner=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "partition_name": {
+    "sql": "set heading off;\nselect count(*) from dba_tab_partitions where table_owner=UPPER('%PARTITION_TBL_OWNER%') and table_name = UPPER('%PARTITION_TABLE%') and partition_name=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "lob_table": {
+    "sql": "set heading off;\nselect count(*) from dba_lobs where owner=UPPER('%LOB_TBL_OWNER%') and table_name=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "lob_owner": {
+    "sql": "set heading off;\nselect count(*) from dba_lobs where owner=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  },
+  "lob_name": {
+    "sql": "set heading off;\nselect count(*) from dba_lobs where owner=UPPER('%LOB_TBL_OWNER%') and table_name = UPPER('%LOB_TABLE%') and column_name=UPPER('%USERINPUT%');\nquit;",
+    "expected": "[1-9]\\d*"
+  }
+}
+

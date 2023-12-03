@@ -1,0 +1,15 @@
+@?/rdbms/admin/sqlsessstart.sql
+oradebug setospid PID_X
+oradebug unlimit
+oradebug SETTRACEFILEID QMON_SRV_PID_X
+oradebug event 10046 trace name context forever, level 12;
+oradebug event 10850 trace name context forever, level 10;
+oradebug event 10852 trace name context forever, level 160;
+oradebug event 26700 trace name context forever, level 256;
+exec dbms_lock.sleep(120);
+oradebug event 10046 trace name context off;
+oradebug event 10850 trace name context off;
+oradebug event 10852 trace name context off;
+oradebug event 26700 trace name context off;
+@?/rdbms/admin/sqlsessend.sql
+exit;

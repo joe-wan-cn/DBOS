@@ -1,0 +1,11 @@
+set echo on;
+select 'Script version: 19-Mar-2021' from dual;
+select decode(count(cell_path),0,'Non-Exadata','Exadata') "System" from v$cell;
+show all;
+list incarnation of database;
+report schema;
+list backup summary;
+list backup completed after 'sysdate-14';
+list copy completed after 'sysdate-14';
+report obsolete;
+restore database preview summary;

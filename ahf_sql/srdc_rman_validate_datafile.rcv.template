@@ -1,0 +1,1 @@
+backup validate check logical datafile FILENUMBERS;

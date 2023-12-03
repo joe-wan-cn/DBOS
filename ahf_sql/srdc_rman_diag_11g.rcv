@@ -1,0 +1,9 @@
+set echo on;
+show all;
+list incarnation of database;
+report schema;
+list backup summary;
+list backup completed after 'sysdate-14';
+list copy completed after 'sysdate-14';
+report obsolete;
+restore database preview summary;

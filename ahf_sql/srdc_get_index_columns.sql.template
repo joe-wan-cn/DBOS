@@ -1,0 +1,7 @@
+set heading off;
+set feedback off
+set LINESIZE 1024
+
+select COLUMN_NAME from dba_ind_columns where INDEX_OWNER='INDEXOWNER' and index_name='INDEXNAME';
+
+exit;

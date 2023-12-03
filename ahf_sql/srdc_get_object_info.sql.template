@@ -1,0 +1,6 @@
+set feedback off
+set LINESIZE 1024
+select * 
+from   dba_objects
+where  object_id = OBJECT_ID; 
+exit;
